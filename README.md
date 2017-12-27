@@ -1,7 +1,5 @@
   
-   # Purchase       14csb40          Ragavi S
-     ## purchase order
-     ## purchase amendment
+   # Purchase       14csb40          Ragavi  
    
    # Inventory         14csb21             Saran G
      ## General GRN
