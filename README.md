@@ -1,21 +1,22 @@
 # Purchase    14csb11          Ragavi S 
- ## purchase order
- ## purchase amendment
+## Department Indent
+## Store Indent
+## Purchase Order
+ ## Purchase Amendment
  
  # Inventory         14csb21             Saran G
  ## General GRN
  ## GRN
  ## GRN QA
-     
- # Report            14csb27            Soundarya C  
-  ## Reports about all modules
-  ## Display the reports
-  
- # Invoice
- ## Generate bill
+ ## Purchase Invoice    
+ # Sales           14csb27            Soundarya C  
+  ## Customer master
+  ## Sales Order
+  ##DC
+  ##Sales Invoice
     
- # General Master    14csb40             Gilbert William G
+ # Master    14csb40             Gilbert William G
  ## Consignee master
  ## Supplier
- ## Product
+ ## Department Master
      
