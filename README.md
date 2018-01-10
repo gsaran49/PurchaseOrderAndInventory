@@ -12,11 +12,12 @@
  # Sales           14csb27            Soundarya C  
   ## Customer master
   ## Sales Order
-  ##DC
-  ##Sales Invoice
+  ## DC
+  ## Sales Invoice
     
  # Master    14csb40             Gilbert William G
  ## Consignee master
  ## Supplier
  ## Department Master
-     
+  
+  #SMS alert
