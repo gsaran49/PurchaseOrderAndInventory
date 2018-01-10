@@ -20,4 +20,4 @@
  ## Supplier
  ## Department Master
   
-  #SMS alert
+  # SMS alert
