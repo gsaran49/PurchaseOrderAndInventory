@@ -10,14 +10,20 @@
  ## GRN QA
  ## Purchase Invoice    
  # Sales           14csb27            Soundarya C  
-  ## Customer master
   ## Sales Order
+  ## Production Inward
   ## DC
   ## Sales Invoice
     
  # Master    14csb40             Gilbert William G
- ## Consignee master
  ## Supplier
- ## Department Master
+ ## Customer Master
+ ## Product Master
+ ## Payment Master
+ ## Delivery Master
+ ## Brand Master
+ ## Country Master
+ ## State Master
+ ## City Master
   
   # SMS alert
