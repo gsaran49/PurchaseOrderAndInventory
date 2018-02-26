@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kite_productmaster_form_view_1" model="ir.ui.view">
+			<field name="name">kite.countrymaster.form</field>
+			<field name="model">kite.countrymaster</field>
+			<field name="arch" type="xml">
+				<form string="kite countrymaster" version="7.0">	
+					<header>
+					<button name="confirm_purchase" string="Confirm" states="draft" type="object" class="oe_highlight"/>
+					</header>
+					<group>			
+						<group>			
+							<field name="Customer_name"/>
+							<field name="Customer_country">
+							</field>	
+						</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kite_countrymaster_tree_view_1" model="ir.ui.view">
+			<field name="name">kite.countrymaster.tree</field>
+			<field name="model">kite.countrymaster</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Purchase">
+					<field name="Customer_name"/>
+					<field name="Customer_country"/>
+<!--
+					<field name="status"/>
+-->
+				</tree>
+			</field>
+		</record>
+		
+
+	
+		
+<!--
+		<record id="purchase_line_form" model="ir.ui.view">
+			<field name="name">kite.general.line.form</field>
+			<field name="model">kite.general.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+-->
+
+<!--
+	<record id="kite_GENERAL_line_tree" model="ir.ui.view">
+		<field name="name">kite.GENERAL.line.tree</field>
+		<field name="model">kite.GENERAL.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="Item_Name" />
+					   <field name="Quantity"/>
+					   <field name="Price_unit"/>
+					   <field name="Amount"/>
+
+
+						
+			</tree>		
+		</field>
+	</record>
+-->
+	
+	
+		 <record id="kite_countrymaster_action_form_1" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kite.countrymaster</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kite_countrymaster_tree_view_1"/>
+		</record>
+	
+	
+	
+	
+		<menuitem action="kite_countrymaster_action_form_1" name="Country Master" id="kite_countrymaster_menu_1" parent="kite_master.kg_kgisl_master_menu" sequence="2"/>
+	
+	
+<!--
+		<menuitem action="kite_general_action_form" name="General GRN" id="kg_inventory_menu" parent="kite_grn.kg_inventory" sequence="3"/>
+-->
+	
+	
+		
+</data>
+	</openerp>

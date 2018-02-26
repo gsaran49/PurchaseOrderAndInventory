@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kite_grn_form_view" model="ir.ui.view">
+			<field name="name">kite.grn.form</field>
+			<field name="model">kite.grn</field>
+			<field name="arch" type="xml">
+				<form string="kite grn" version="7.0">	
+					<header>
+					<button name="confirm_purchase" string="Confirm" states="draft" type="object" class="oe_highlight"/>
+					</header>
+					<group>			
+						<group>			
+							<field name="supplier"/>
+							<field name="GRN_No"></field>
+							<field name="Inward_Type"/>	
+							<field name="active"/>
+						</group>	
+							   
+						<group>
+							<field name="GRN_date"/>
+							<field name="state"/>
+							<field name="GRN_type"/>
+							<field name="InvoiceDC_Date"/>
+							<field name="LR_Date"/>
+						</group>
+					</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kite_grn_tree_view" model="ir.ui.view">
+			<field name="name">kite.grn.tree</field>
+			<field name="model">kite.grn</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Purchase">
+					<field name="supplier"/>
+					<field name="GRN_date"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+		 <record id="kite_grn_action_form" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kite.grn</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kite_grn_tree_view"/>
+		</record>
+
+	
+	
+	
+		<menuitem id="kg_kgisl_inventory" name="Kgisl Inventory" sequence="11"/>
+		<menuitem id="kg_kgisl_inventory_menu" name="Inventory" parent="kg_kgisl_inventory" sequence="2"/>
+		<menuitem action="kite_grn_action_form" name="GRN" id="kg_inventory" parent="kg_kgisl_inventory_menu" sequence="2"/>
+	
+		
+		<record id="purchase_line_form" model="ir.ui.view">
+			<field name="name">kite.grn.line.form</field>
+			<field name="model">kite.grn.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+
+	<record id="kite_grn_line_tree" model="ir.ui.view">
+		<field name="name">kite.grn.line.tree</field>
+		<field name="model">kite.grn.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="product" />
+					   <field name="po_Qty"/>
+					   <field name="challen_Qty"/>
+					   <field name="Required_qty"/>
+					   <field name="Accepted_Qty"/>
+					   <field name="pro_type"/>
+					   
+					   
+
+
+						
+			</tree>		
+		</field>
+	</record>
+	
+		
+</data>
+	</openerp>

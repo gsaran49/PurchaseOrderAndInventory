@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kg_purchase_form_view" model="ir.ui.view">
+			<field name="name">kg.purchase</field>
+			<field name="model">kg.purchase</field>
+			<field name="arch" type="xml">
+				<form string="kg purchase" version="7.0">	
+					<header>
+					<button name="confirm_purchase" string="Confirm" states="draft" type="object" class="oe_highlight"/>
+					</header>
+					<group>			
+						<group>			
+							<field name="name"/>
+							<field name="plan_type"/>
+							<field name="state"/>	
+						</group>	
+							   
+						<group>
+							<field name="creation_date"/>
+							<field name="active"/>
+						</group>
+					</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kg_purchase_tree_view" model="ir.ui.view">
+			<field name="name">kg.purchase.tree</field>
+			<field name="model">kg.purchase</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Purchase">
+					<field name="name"/>
+					<field name="creation_date"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+		 <record id="purchase_action_form" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kg.purchase</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kg_purchase_tree_view"/>
+		</record>
+
+	
+	
+	
+		
+		<menuitem id="kg_kgisl_po" name="Kgisl PO" sequence="10"/>
+		<menuitem id="kg_kgisl_po_menu" name="Purchase" parent="kg_kgisl_po" sequence="1"/>
+		<menuitem action="purchase_action_form" name="PO" id="kg_po" parent="kg_kgisl_po_menu" sequence="1"/>
+		<menuitem action="purchase_action_form" name="PO" id="kg_po" parent="kg_kgisl_po_menu" sequence="1"/>
+		
+		<record id="purchase_line_form" model="ir.ui.view">
+			<field name="name">kg.purchase.line.form</field>
+			<field name="model">kg.purchase.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product_code"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+
+	<record id="kg_purchase_line_tree" model="ir.ui.view">
+		<field name="name">kg.purchase.line.tree</field>
+		<field name="model">kg.purchase.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="product_name"  on_change="onchange_product(product_name,unit_price)" attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+					   <field name="product_code" attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+					   <field name="unit_price"  on_change="onchange_result(unit_price,required_qty)" attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+					   <field name="required_qty" on_change="onchange_result(unit_price,required_qty)" attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+					   <field name="total_price"  attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+					   <field name="pro_type" attrs = "{'readonly':[('pro_type','=','fromcp')]}"/>
+
+
+						
+			</tree>		
+		</field>
+	</record>
+	
+		
+</data>
+	</openerp>

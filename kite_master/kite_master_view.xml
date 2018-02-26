@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kite_master_form_view" model="ir.ui.view">
+			<field name="name">kite.master.form</field>
+			<field name="model">kite.master</field>
+			<field name="arch" type="xml">
+				<form string="kite master" version="7.0">	
+					<header>
+					<button name="confirm_purchase" string="Confirm" states="draft" type="object" class="oe_highlight"/>
+					</header>
+					<group>			
+						<group>			
+							<field name="customer"/>
+							<field name="date"></field>
+							<field name="invoice_address"/>	
+							
+						</group>	
+							   
+						<group>
+							<field name="delivary_address"/>
+							<field name="shop"/>
+						</group>
+					</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kite_master_tree_view" model="ir.ui.view">
+			<field name="name">kite.master.tree</field>
+			<field name="model">kite.master</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Inventory">
+					<field name="customer"/>
+					<field name="date"/>
+					<field name="shop"/>
+				</tree>
+			</field>
+		</record>
+		
+		 <record id="kite_master_action_form" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kite.master</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kite_master_tree_view"/>
+		</record>
+
+	
+	
+	
+		<menuitem id="kg_kgisl_master" name="Kgisl master" sequence="13"/>
+		<menuitem id="kg_kgisl_master_menu" name="Master" parent="kg_kgisl_master" sequence="13"/>
+		<menuitem action="kite_master_action_form" name="Payment master" id="kg_master" parent="kg_kgisl_master_menu" sequence="13"/>
+		
+		
+		<record id="kite_master_line_form" model="ir.ui.view">
+			<field name="name">kite.master.line.form</field>
+			<field name="model">kite.master.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+
+	<record id="kite_master_line_tree" model="ir.ui.view">
+		<field name="name">kite.master.line.tree</field>
+		<field name="model">kite.master.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="product" />
+					   <field name="Descrption"/>
+					   <field name="Quantity"/>
+					   <field name="unit_measure"/>
+					   <field name="unit_price"/>
+					   <field name="sub_total"/>
+
+
+						
+			</tree>		
+		</field>
+	</record>
+	
+		
+</data>
+	</openerp>

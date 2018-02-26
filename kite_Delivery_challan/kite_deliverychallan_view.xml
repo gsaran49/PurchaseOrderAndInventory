@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kite_deliverychallan_form_view_1" model="ir.ui.view">
+			<field name="name">kite.deliverychallan.form</field>
+			<field name="model">kite.deliverychallan</field>
+			<field name="arch" type="xml">
+				<form string="kite deliverychallan" version="7.0">	
+					<header>
+					<button name="confirm_purchase" string="Confirm" states="draft" type="object" class="oe_highlight"/>
+					</header>
+					<group>			
+						<group>			
+							<field name="customer_name"/>
+							<field name="entry_date"></field>	
+							<field name="Phone_No"/>
+							<field name="state"/>
+						</group>	
+							   
+						<group>
+							<field name="DC_Date"/>
+							<field name="user_id"/>
+							
+						</group>
+					</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kite_deliverychallan_tree_view_1" model="ir.ui.view">
+			<field name="name">kite.deliverychallan.tree</field>
+			<field name="model">kite.deliverychallan</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Purchase">
+					<field name="customer_name"/>
+					<field name="entry_date"/>
+
+					<field name="state"/>
+
+				</tree>
+			</field>
+		</record>
+		
+
+	
+		
+<!--
+		<record id="purchase_line_form" model="ir.ui.view">
+			<field name="name">kite.general.line.form</field>
+			<field name="model">kite.general.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+-->
+
+<!--
+	<record id="kite_GENERAL_line_tree" model="ir.ui.view">
+		<field name="name">kite.GENERAL.line.tree</field>
+		<field name="model">kite.GENERAL.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="Item_Name" />
+					   <field name="Quantity"/>
+					   <field name="Price_unit"/>
+					   <field name="Amount"/>
+
+
+						
+			</tree>		
+		</field>
+	</record>
+-->
+	
+	
+		 <record id="kite_deliverychallan_action_form_1" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kite.deliverychallan</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kite_deliverychallan_tree_view_1"/>
+		</record>
+	
+	
+	
+	
+		<menuitem action="kite_deliverychallan_action_form_1" name="Delivery challan" id="kite_deliverychallan_menu_1" parent="kite_salesorder.kg_kgisl_sales_menu" sequence="2"/>
+	
+	
+<!--
+		<menuitem action="kite_general_action_form" name="General GRN" id="kg_inventory_menu" parent="kite_grn.kg_inventory" sequence="3"/>
+-->
+	
+	
+		
+</data>
+	</openerp>

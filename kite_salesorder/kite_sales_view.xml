@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+	
+	<record id="kite_sales_form_view" model="ir.ui.view">
+			<field name="name">kite.sales.form</field>
+			<field name="model">kite.sales</field>
+			<field name="arch" type="xml">
+				<form string="kite sales" version="7.0">	
+					
+					<group>			
+						<group>			
+							<field name="customer"/>
+							<field name="date"></field>
+							<field name="invoice_address"/>	
+							<field name="state"/>
+							
+						</group>	
+							   
+						<group>
+							<field name="delivery_address"/>
+							<field name="shop"/>
+						</group>
+					</group>
+					
+					<field name = "line_id"/>
+				</form>
+			</field> 
+		</record>
+		
+		<record id="kite_sales_tree_view" model="ir.ui.view">
+			<field name="name">kite.sales.tree</field>
+			<field name="model">kite.sales</field>
+			<field name="arch" type="xml">
+				<tree toolbar="True" string="Inventory">
+					<field name="customer"/>
+					<field name="date"/>
+					<field name="shop"/>
+				</tree>
+			</field>
+		</record>
+		
+		 <record id="kite_sales_action_form" model="ir.actions.act_window">
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">kite.sales</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kite_sales_tree_view"/>
+		</record>
+
+	
+	
+	
+		<menuitem id="kg_kgisl_sales" name="Kgkite sales" sequence="12"/>
+		<menuitem id="kg_kgisl_sales_menu" name="sales" parent="kg_kgisl_sales" sequence="3"/>
+		<menuitem action="kite_sales_action_form" name="sales order" id="kg_sales" parent="kg_kgisl_sales_menu" sequence="3"/>
+		
+		
+		<record id="kite_sales_line_form" model="ir.ui.view">
+			<field name="name">kite.sales.line.form</field>
+			<field name="model">kite.sales.line</field>
+			<field name="arch" type="xml">
+				<form string="Product Line" >
+					<group>
+							<group>
+								<field name="product"/>
+								
+							</group>
+							
+					</group>	
+
+				</form>
+				
+			</field>
+		</record>
+
+	<record id="kite_sales_line_tree" model="ir.ui.view">
+		<field name="name">kite.sales.line.tree</field>
+		<field name="model">kite.sales.line</field>
+		<field name="arch" type="xml">
+			<tree string="Purchase planning Line" editable="bottom"> 
+					   
+					   <field name="product" />
+					   <field name="Descrption"/>
+					   <field name="Quantity"/>
+					   <field name="unit_measure"/>
+					   <field name="unit_price"/>
+					   <field name="sub_total"/>
+
+
+						
+			</tree>		
+		</field>
+	</record>
+	
+		
+</data>
+	</openerp>
